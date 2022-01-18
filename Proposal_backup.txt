@@ -1,0 +1,56 @@
+# Proposal
+
+## Introduction
+
+Pneumonia is a respiratory infectious disease affecting the lungs. It is the leading cause of under 5-year-old child death worldwide, killing over 800,000 children in 2017, and accounting for 15% of the deaths in children this age [1]. In the US, it causes about 1 million adult hospitalizations each year and is the leading cause of child hospitalization [2]. Chest X-Ray is currently the best tool available for diagnosing the disease. 
+
+However, it is still a challenging task for a trained professional because the X-ray images are often obscure and hard to distinguish from other lung-related diseases. A [research](https://www.sciencedaily.com/releases/2010/10/101022123749.htm)  have the following three observations. First, it shows that 72 perent of pateints were misdiagnoised with pneumonia when they are readmittd to the same hospital. Second, 72 percent of the misdiagnoses occured in the Emergency Department, where physicians are likely under high pressure. Third, pnemonia will be more easily confounded with pneumonia. Therefore, there is a pressing need to develop diagnostic tools that help the physicians to distinguish patients with pnemonia from normal people, especially for those at the Emergency Unit who have to make diagnostic decisions under time pressure. Thus, we hope to use the knowledge gained in this Machine Learning class to build a model that would help to diagnose Pneumonia.
+
+Proposal video: https://youtu.be/wwyKnWuLHiE
+
+## Problem Definition
+
+We are trying to solve the problem of diagnosing patients with pneumonia, given their Chest X-Ray image. Since each image can be classified into the ‘Pneumonia’ class or the ‘Normal’ class, we are treating this as a binary classification problem. The inputs are the frontal chest X-ray images and the outputs are binary predictions (0 or 1), corresponding to the probabilities of the ‘Normal’ and ‘Pneumonia’ classes respectively. Previous research has favored the use of CNN [3, 4] for x-ray image classification. Our project aims to compare the performance of CNN to other models such as SVM and ANN. We will accomplish this using both supervised and unsupervised learning.
+
+## Data Collections
+
+We have collected a dataset from [kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia), consisting of 5,863 X-Ray images of chests with labels of 'NORMAL' and 'PNEUMONIA'. The labels indicates whether the patients with the certain X-Ray images are diagnoised with Pneumonia or not. The diagnostic labels for the images were verified by expert physicians. 
+
+About the Dataset: The images were selected from restrospective cohorts of pediatric patients from the Guangzhou Women and Children's Medical Center in Guangzhou, China. The images are Chest Radiographs that were obtained during routine clinical care, which were then screened for quality control.
+
+## Methods
+### Supervised Learning
+We have decided to approach this problem as an Image Classification problem to classify Chest X-Ray images as positive or negative for pneumonia. We plan to train a standard CNN, perform hyperparameter optimization and compare it to the performance of classic CNN architectures such as LeNet, AlexNet, VGG, etc. We will also train models such as ANN and SVM on compact representations of the input images, which will be obtained using unsupervised learning techniques.
+
+### Unsupervised Learning
+  We propose to use unsupervised methods to preprocess our data before undergoing training in a few of the supervised models. We plan to use algorithms, such as Autoencoders or Principal Component Analysis (PCA) to learn compact representations of the images, and use them to train the classification models. We will also run K-Means or other sorts of clustering algorithms based on that compact data as exploratory data analysis.
+
+## Potential Results and Discussion
+As a baseline objective, we expect to train several models that can accurately classify Chest X-Ray images as ‘Normal’ or ‘Pneumonia’. We plan to use classification evaluation metrics like accuracy, precision, recall, f1-score, etc. to compare the trained models. If the binary classification is successful, we may consider achieving multi-class classification between ‘Normal’, ‘Bacterial Pneumonia’, ‘‘Viral Pneumonia’.
+
+Should this model be accurate enough, it can be used as an initial screening or ancillary diagnostic tool to increase the sensitivity of the diagnosis and reduce the false-negative cases. Pneumonia can cause acute symptoms such as respiratory failure [8], so our model is to ensure that more patients with Pneumonia can be dealt with using proper medical care in due time.
+
+## Timeline and Division of Responsibility
+
+| Date/ Period | Project Progresses and Tasks | ML Modelling to be deployed |
+| :-------------: |:-------------| :-----:|
+|Sept 15 - Oct 1| Ideation and Planning ||
+|Oct 1 - Oct 7|Preliminary Research for Topics and Datasets<br/>Data Collection<br/>Research for Methodology||
+|Oct 7|Proposal Deadline||
+|Oct 8 - Oct 14|Setup work environment<br/>Exploratory Data Analysis (EDA)<br/>Data Cleaning and Preprocessing<br/>Research for Model Implementation|K-means and other types of clustering|
+|Oct 15 - Oct 21|Summarize and document EDA and data cleaning result<br/>Feature Selection<br/>Dimensionality Reduction<br/>Feature Engineering|Principal Component Analysis (PCA) and Autoencoders|
+|Oct 22 - Oct 28|Train and tune image classification models<br/>Model Evaluation and Comparison|CNN, ANN, SVM|
+|Oct 29 - Nov 4|Summarize model result<br/>Brainstorm and research for ways to further improve the model||
+|Nov 5 - Nov 15|Consolidating Findings into Midpoint Report||
+|Nov 16|Project Midpoint Report||
+|Nov 17 - Nov 28|Further Hyperparameter Tuning<br/>Model Evaluations and Comparisons|CNN, ANN, SVM|
+|Nov 29 - Dec 6|Documenting Findings into Report<br/>Video Production for Final Deliverables||
+|Dec 7|Final Project Due||
+
+| Member | GT Names | Responsibility |
+| :-------------: |:-------------| :-----:|
+|Tsz Fung, Pang (Sam)| tpang34 |Feature Engineering, PCA, CNN models|
+|Daanish M Mohammed|dmohammed7|Train Autoencoder, ANN and CNN models|
+|Omar Ahmed|oahmed31|SVM, ANN, CNN, Github Page|
+|Lucienne Loo|lloo6|Video presentation, EDA, SVM models|
+|Dheerachote (Pau) Korpajarasoontorn|dkorpaja3|EDA, Train PCA and CNN models|
